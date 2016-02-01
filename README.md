@@ -1,4 +1,4 @@
-# SecureStorage
+# Secure Storage Plugin for Xamarin
 The plugin can be used for storing sensitive data strings such as password, session token, credit card number etc. This plugin provides ability to securely store strings on iOS, Android and Windows Phone 8.0.
 (Not supported on Windows Phone 8.1,  Windows 8.1 and UWP). 
 The strings are stored as key-valy pairs. They are saved using platform specific encryption mechanism. So the data is stored securely and can be used across the sessions.
