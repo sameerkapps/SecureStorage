@@ -1,5 +1,5 @@
-﻿using Plugin.SecureStorage.Abstractions;
-using System;
+﻿using System;
+using Plugin.SecureStorage.Abstractions;
 
 namespace Plugin.SecureStorage
 {

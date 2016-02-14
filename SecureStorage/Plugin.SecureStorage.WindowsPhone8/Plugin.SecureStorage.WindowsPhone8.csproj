@@ -89,6 +89,7 @@
     </Compile>
     <Compile Include="SecureStorageImplementation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinSecureStorageBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Plugin.SecureStorage.Abstractions\Plugin.SecureStorage.Abstractions.csproj">

@@ -58,10 +58,10 @@
       <HintPath>..\packages\Xamarin.Forms.1.3.5.6335\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.SecureStorage">
-      <HintPath>..\packages\sameerIOTApps.Plugin.SecureStorage.1.0.0\lib\MonoAndroid10\Plugin.SecureStorage.dll</HintPath>
+      <HintPath>..\packages\sameerIOTApps.Plugin.SecureStorage.1.2.0\lib\MonoAndroid10\Plugin.SecureStorage.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.SecureStorage.Abstractions">
-      <HintPath>..\packages\sameerIOTApps.Plugin.SecureStorage.1.0.0\lib\MonoAndroid10\Plugin.SecureStorage.Abstractions.dll</HintPath>
+      <HintPath>..\packages\sameerIOTApps.Plugin.SecureStorage.1.2.0\lib\MonoAndroid10\Plugin.SecureStorage.Abstractions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

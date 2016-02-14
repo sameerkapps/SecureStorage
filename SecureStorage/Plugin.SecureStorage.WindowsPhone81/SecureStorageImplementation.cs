@@ -1,53 +1,91 @@
-using Plugin.SecureStorage.Abstractions;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using Windows.Storage;
-using Windows.Storage.Streams;
+using System.Threading.Tasks;
 using Windows.Security.Cryptography;
 using Windows.Security.Cryptography.DataProtection;
-using System.Runtime.Serialization.Json;
-using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Storage;
+using Windows.Storage.Streams;
 
 namespace Plugin.SecureStorage
 {
     /// <summary>
-    /// Not implemented for Windows Phone 8.1
+    /// Implementation of persistence for WinPhone 8.1
+    /// Same is applicable for UWP
     /// </summary>
-    public class SecureStorageImplementation : SecureStorageImplementationBase
+    public class SecureStorageImplementation : WinSecureStorageBase
     {
         /// <summary>
-        /// Not implemented for Windows Phone 8.1
+        /// Implementation of Load from storage for Windows Store, WP8.1 and UWP.
         /// </summary>
-        public override bool SetValue(string key, string value)
+        protected override byte[] LoadData()
         {
-            throw new NotImplementedException("Not implemented for Windows Phone 8.1");
+            var task = Task.Run<byte[]>(async () => { return await LoadDataAsync(); });
+            task.Wait();
+
+            return task.Result;
         }
 
         /// <summary>
-        /// Not implemented for Windows Phone 8.1
+        /// Synchronous implementation of Save to storage for Windows Store and windows phone 8.1 and UWP
+        /// Calls async method and makes it run synchronously
         /// </summary>
-        public override string GetValue(string key, string defaultValue = null)
+        protected override void SaveData(byte[] clearBytes)
         {
-            throw new NotImplementedException("Not implemented for Windows Phone 8.1");
+            var task = Task.Run(async () => { await SaveDataAsync(clearBytes); });
+            task.Wait();
         }
 
         /// <summary>
-        /// Not implemented for Windows Phone 8.1
+        /// Implementation of Load from storage for Windows Store.
         /// </summary>
-        public override bool DeleteKey(string key)
+        protected async Task<byte[]> LoadDataAsync()
         {
-            throw new NotImplementedException("Not implemented for Windows Phone 8.1");
+            try
+            {
+                // find the storage file
+                var localFolder = ApplicationData.Current.LocalFolder;
+
+                var storageFile = await localFolder.GetFileAsync(StorageFile);
+
+                // read the data. It will be encrypted data
+                IBuffer buffProtected = await FileIO.ReadBufferAsync(storageFile);
+                DataProtectionProvider provider = new DataProtectionProvider();
+
+                // decrypt the data
+                IBuffer clearBuffer = await provider.UnprotectAsync(buffProtected);
+
+                // convert it to byte array
+                byte[] clearBytes = new byte[clearBuffer.Length];
+                CryptographicBuffer.CopyToByteArray(clearBuffer, out clearBytes);
+
+                return clearBytes;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         /// <summary>
-        /// Not implemented for Windows Phone 8.1
+        /// Implementation of Save to storage for Windows Store, WP8.1 and UWP
         /// </summary>
-        public override bool HasKey(string key)
+        private async Task SaveDataAsync(byte[] clearBytes)
         {
-            throw new NotImplementedException("Not implemented for Windows Phone 8.1");
+            // create the storage file
+            var localFolder = ApplicationData.Current.LocalFolder;
+            var storageFile = await localFolder.CreateFileAsync(StorageFile, CreationCollisionOption.ReplaceExisting);
+
+            // create buffer from byte array
+            IBuffer clearBuffer = CryptographicBuffer.CreateFromByteArray(clearBytes);
+
+            // Encrypt the buffer.
+            var provider = new DataProtectionProvider(DPProvider);
+            IBuffer protectedBuffer = await provider.ProtectAsync(clearBuffer);
+
+            // save to storage
+            await FileIO.WriteBufferAsync(storageFile, protectedBuffer);
         }
+
+        // provider for data protection
+        private const string DPProvider = "LOCAL=user";
     }
-
 }
