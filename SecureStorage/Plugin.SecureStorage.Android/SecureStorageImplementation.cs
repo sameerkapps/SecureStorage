@@ -81,7 +81,8 @@ namespace Plugin.SecureStorage
 
             // get the entry from the store
             // if it does not exist, return the default value
-            var entry = _store.GetEntry(key, _passwordProtection) as KeyStore.SecretKeyEntry;
+			KeyStore.SecretKeyEntry entry = GetSecretKeyEntry(key);
+
             if (entry != null)
             {
                 var encodedBytes = entry.SecretKey.GetEncoded();
@@ -126,7 +127,8 @@ namespace Plugin.SecureStorage
             base.DeleteKey(key);
 
             // retrieve the entry
-            var entry = _store.GetEntry(key, _passwordProtection) as KeyStore.SecretKeyEntry;
+			KeyStore.SecretKeyEntry entry = GetSecretKeyEntry(key);
+
             // if entry exists, delete from store, save the store and return true
             if (entry != null)
             {
@@ -148,7 +150,7 @@ namespace Plugin.SecureStorage
             // validate if key is valid
             base.HasKey(key);
             // retrieve to see, if it exists
-            return (_store.GetEntry(key, _passwordProtection) as KeyStore.SecretKeyEntry) != null;
+			return GetSecretKeyEntry(key) != null;
         }
 
         #endregion
@@ -161,6 +163,21 @@ namespace Plugin.SecureStorage
                 _store.Store(stream, StoragePasswordArray);
             }
         }
+
+		// retrieves the secret key entry from the store
+		private KeyStore.SecretKeyEntry GetSecretKeyEntry(string key)
+		{
+			try
+			{
+				return _store.GetEntry(key, _passwordProtection) as KeyStore.SecretKeyEntry;
+			}
+			catch(UnrecoverableKeyException) // swallow this exception. Can be caused by invalid key
+			{
+				return null;
+			}
+
+			return null;
+		}
 
         /// <summary>
         /// Class for storing string as entry
