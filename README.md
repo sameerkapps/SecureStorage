@@ -3,6 +3,11 @@ The plugin can be used to **Securely store** sensitive data strings such as pass
 
 It has easy to use API of key-value pairs. The pairs are saved using platform specific encryption mechanism. It has no dependencies on any packages (including Xamarin.Forms, MVVMCross.). And can be used by any Xamarin or Windows app. It is open source.
 
+**Note**
+
+If your app fails to save values in iOS 10 Simulator, open the Entitlements.plist file and make sure that "Enable Keychain Access Groups" is checked. Also ensure that in Project->Options->iOS Bundle Signing, the Entitlements.plist is selected in Custom Entitlements for iPhoneSimulator platform.
+This happens only in iOS 10 Simulator due to https://forums.xamarin.com/discussion/77760/ios-10-keychain
+
 ## Usage ##
 It provides 4 methods.
 
