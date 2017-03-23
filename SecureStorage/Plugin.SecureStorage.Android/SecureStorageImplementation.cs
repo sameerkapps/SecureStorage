@@ -86,7 +86,7 @@ namespace Plugin.SecureStorage
             if (entry != null)
             {
                 var encodedBytes = entry.SecretKey.GetEncoded();
-                return Encoding.ASCII.GetString(encodedBytes);
+                return Encoding.UTF8.GetString(encodedBytes);
             }
 
             return defaultValue;
