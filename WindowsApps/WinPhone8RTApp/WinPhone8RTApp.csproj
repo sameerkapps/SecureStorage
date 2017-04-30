@@ -118,11 +118,11 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Plugin.SecureStorage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\sameerIOTApps.Plugin.SecureStorage.1.2.0\lib\wpa81\Plugin.SecureStorage.dll</HintPath>
+      <HintPath>..\packages\sameerIOTApps.Plugin.SecureStorage.1.2.2\lib\wpa81\Plugin.SecureStorage.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.SecureStorage.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\sameerIOTApps.Plugin.SecureStorage.1.2.0\lib\wpa81\Plugin.SecureStorage.Abstractions.dll</HintPath>
+      <HintPath>..\packages\sameerIOTApps.Plugin.SecureStorage.1.2.2\lib\wpa81\Plugin.SecureStorage.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
