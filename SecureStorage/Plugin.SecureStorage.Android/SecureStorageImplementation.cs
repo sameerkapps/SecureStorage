@@ -86,7 +86,7 @@ namespace Plugin.SecureStorage
             if (entry != null)
             {
                 var encodedBytes = entry.SecretKey.GetEncoded();
-                return Encoding.ASCII.GetString(encodedBytes);
+                return Encoding.UTF8.GetString(encodedBytes);
             }
 
             return defaultValue;
@@ -200,7 +200,7 @@ namespace Plugin.SecureStorage
                     throw new ArgumentNullException();
                 }
 
-                _bytes = ASCIIEncoding.ASCII.GetBytes(entry);
+                _bytes = ASCIIEncoding.UTF8.GetBytes(entry);
             }
 
             #region IKey implementation
