@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		SecureStorage.Plugin.nuspec = SecureStorage.Plugin.nuspec
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.SecureStorage.Mac", "SecureStorage\Plugin.SecureStorage.Mac\Plugin.SecureStorage.Mac.csproj", "{C6964121-BFE7-4382-B779-C7EA48F3766C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AppStore|Any CPU = AppStore|Any CPU
@@ -206,8 +208,34 @@ Global
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x64.Build.0 = Release|x64
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x86.ActiveCfg = Release|x86
 		{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}.Release|x86.Build.0 = Release|x86
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.AppStore|Any CPU.Build.0 = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.AppStore|ARM.ActiveCfg = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.AppStore|ARM.Build.0 = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.AppStore|x64.ActiveCfg = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.AppStore|x64.Build.0 = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.AppStore|x86.ActiveCfg = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.AppStore|x86.Build.0 = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Debug|ARM.Build.0 = Debug|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Debug|x64.Build.0 = Debug|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Debug|x86.Build.0 = Debug|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Release|ARM.ActiveCfg = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Release|ARM.Build.0 = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Release|x64.ActiveCfg = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Release|x64.Build.0 = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Release|x86.ActiveCfg = Release|Any CPU
+		{C6964121-BFE7-4382-B779-C7EA48F3766C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal
