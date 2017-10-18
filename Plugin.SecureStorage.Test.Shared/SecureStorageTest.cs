@@ -1,7 +1,6 @@
 ﻿using Plugin.SecureStorage.Abstractions;
-using Plugin.SecureStorage.Test;
 
-namespace Plugin.SecureStorage.Net46.Test
+namespace Plugin.SecureStorage.Test
 {
     public class SecureStorageTest : TestBase
     {
