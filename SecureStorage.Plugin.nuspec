@@ -23,23 +23,11 @@
   <files>
     <!--Core-->
     <file src="SecureStorage\Plugin.SecureStorage\bin\Release\netstandard1.0\Plugin.SecureStorage.*" target="lib\netstandard1.0" />
-
     <!--UWP-->
-    <file src="SecureStorage\Plugin.SecureStorage.UWP\bin\Release\Plugin.SecureStorage.*" target="lib\uap10.0" />
-    
+    <file src="SecureStorage\Plugin.SecureStorage.UWP\bin\Release\Plugin.SecureStorage.*" target="lib\uap10.0" />   
     <!--Xamarin.Android-->
-    <file src="SecureStorage\Plugin.SecureStorage.Android\bin\Release\Plugin.SecureStorage.dll" target="lib\MonoAndroid10\Plugin.SecureStorage.dll" />
-    <file src="SecureStorage\Plugin.SecureStorage.Android\bin\Release\Plugin.SecureStorage.xml" target="lib\MonoAndroid10\Plugin.SecureStorage.xml" />
-    <file src="SecureStorage\Plugin.SecureStorage.Android\bin\Release\Plugin.SecureStorage.pdb" target="lib\MonoAndroid10\Plugin.SecureStorage.pdb" />
-    <file src="SecureStorage\Plugin.SecureStorage.Abstractions\bin\Release\Plugin.SecureStorage.Abstractions.dll" target="lib\MonoAndroid10\Plugin.SecureStorage.Abstractions.dll" />
-    <file src="SecureStorage\Plugin.SecureStorage.Abstractions\bin\Release\Plugin.SecureStorage.Abstractions.xml" target="lib\MonoAndroid10\Plugin.SecureStorage.Abstractions.xml" />
-    <file src="SecureStorage\Plugin.SecureStorage.Abstractions\bin\Release\Plugin.SecureStorage.Abstractions.pdb" target="lib\MonoAndroid10\Plugin.SecureStorage.Abstractions.pdb" />
-
+    <file src="SecureStorage\Plugin.SecureStorage.Android\bin\Release\Plugin.SecureStorage.*" target="lib\MonoAndroid10" />   
     <!--Xamarin.iOS Unified-->
-    <file src="SecureStorage\Plugin.SecureStorage.iOSUnified\bin\iPhone\Release\Plugin.SecureStorage.dll" target="lib\Xamarin.iOS10\Plugin.SecureStorage.dll" />
-    <file src="SecureStorage\Plugin.SecureStorage.iOSUnified\bin\iPhone\Release\Plugin.SecureStorage.xml" target="lib\Xamarin.iOS10\Plugin.SecureStorage.xml" />
-    <file src="SecureStorage\Plugin.SecureStorage.Abstractions\bin\Release\Plugin.SecureStorage.Abstractions.dll" target="lib\Xamarin.iOS10\Plugin.SecureStorage.Abstractions.dll" />
-    <file src="SecureStorage\Plugin.SecureStorage.Abstractions\bin\Release\Plugin.SecureStorage.Abstractions.xml" target="lib\Xamarin.iOS10\Plugin.SecureStorage.Abstractions.xml" />
-
+    <file src="SecureStorage\Plugin.SecureStorage.iOS\bin\Release\Plugin.SecureStorage.*" target="lib\Xamarin.iOS10" />
   </files>
 </package>
