@@ -24,13 +24,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.SecureStorage.Net46"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.SecureStorage.Test", "Plugin.SecureStorage.Test\Plugin.SecureStorage.Test.csproj", "{FB313D30-6154-4D2B-9C23-CAE405D85C42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.SecureStorage.Net46.Test", "Plugin.SecureStorage.Net46.Test\Plugin.SecureStorage.Net46.Test.csproj", "{FEF678DC-D1DF-47F6-8971-E406ADACCB31}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Plugin.SecureStorage.Test.Shared", "Plugin.SecureStorage.Test.Shared\Plugin.SecureStorage.Test.Shared.shproj", "{67293509-57F4-4016-8D9D-9F6FDC34E00E}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Plugin.SecureStorage.Shared\Plugin.SecureStorage.Shared.projitems*{1476a74c-e552-4003-a4d5-2deac0382ed8}*SharedItemsImports = 4
 		Plugin.SecureStorage.Shared\Plugin.SecureStorage.Shared.projitems*{566acc48-b3c9-4f2a-a112-cd76e30d4bcd}*SharedItemsImports = 4
 		Plugin.SecureStorage.Shared\Plugin.SecureStorage.Shared.projitems*{57008806-5883-47c4-84bc-ac37520cfdfb}*SharedItemsImports = 13
+		Plugin.SecureStorage.Test.Shared\Plugin.SecureStorage.Test.Shared.projitems*{67293509-57f4-4016-8d9d-9f6fdc34e00e}*SharedItemsImports = 13
 		Plugin.SecureStorage.Shared\Plugin.SecureStorage.Shared.projitems*{7c5ae79b-b681-4d39-bd30-381839cf81ed}*SharedItemsImports = 4
 		Plugin.SecureStorage.Shared\Plugin.SecureStorage.Shared.projitems*{f5713aab-70a5-4ce0-be3b-06b561375f64}*SharedItemsImports = 4
+		Plugin.SecureStorage.Test.Shared\Plugin.SecureStorage.Test.Shared.projitems*{fef678dc-d1df-47f6-8971-e406adaccb31}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AppStore|Any CPU = AppStore|Any CPU
@@ -215,6 +221,30 @@ Global
 		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Release|x64.Build.0 = Release|Any CPU
 		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Release|x86.ActiveCfg = Release|Any CPU
 		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Release|x86.Build.0 = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.AppStore|Any CPU.Build.0 = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.AppStore|ARM.ActiveCfg = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.AppStore|ARM.Build.0 = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.AppStore|x64.ActiveCfg = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.AppStore|x64.Build.0 = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.AppStore|x86.ActiveCfg = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.AppStore|x86.Build.0 = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Debug|ARM.Build.0 = Debug|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Debug|x64.Build.0 = Debug|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Debug|x86.Build.0 = Debug|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Release|ARM.ActiveCfg = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Release|ARM.Build.0 = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Release|x64.ActiveCfg = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Release|x64.Build.0 = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Release|x86.ActiveCfg = Release|Any CPU
+		{FEF678DC-D1DF-47F6-8971-E406ADACCB31}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
