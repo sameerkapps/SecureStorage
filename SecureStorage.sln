@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.SecureStorage.iOS", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.SecureStorage.Net46", "Plugin.SecureStorage.Net46\Plugin.SecureStorage.Net46.csproj", "{1476A74C-E552-4003-A4D5-2DEAC0382ED8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.SecureStorage.Test", "Plugin.SecureStorage.Test\Plugin.SecureStorage.Test.csproj", "{FB313D30-6154-4D2B-9C23-CAE405D85C42}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Plugin.SecureStorage.Shared\Plugin.SecureStorage.Shared.projitems*{1476a74c-e552-4003-a4d5-2deac0382ed8}*SharedItemsImports = 4
@@ -189,6 +191,30 @@ Global
 		{1476A74C-E552-4003-A4D5-2DEAC0382ED8}.Release|x64.Build.0 = Release|Any CPU
 		{1476A74C-E552-4003-A4D5-2DEAC0382ED8}.Release|x86.ActiveCfg = Release|Any CPU
 		{1476A74C-E552-4003-A4D5-2DEAC0382ED8}.Release|x86.Build.0 = Release|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.AppStore|Any CPU.Build.0 = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.AppStore|ARM.ActiveCfg = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.AppStore|ARM.Build.0 = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.AppStore|x64.ActiveCfg = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.AppStore|x64.Build.0 = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.AppStore|x86.ActiveCfg = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.AppStore|x86.Build.0 = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Debug|ARM.Build.0 = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Debug|x64.Build.0 = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Debug|x86.Build.0 = Debug|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Release|ARM.ActiveCfg = Release|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Release|ARM.Build.0 = Release|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Release|x64.ActiveCfg = Release|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Release|x64.Build.0 = Release|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Release|x86.ActiveCfg = Release|Any CPU
+		{FB313D30-6154-4D2B-9C23-CAE405D85C42}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
