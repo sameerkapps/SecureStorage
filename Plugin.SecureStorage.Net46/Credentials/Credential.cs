@@ -39,8 +39,9 @@ namespace Plugin.SecureStorage.Credentials
             {
                 LastWritten = DateTime.FromFileTime((long)((ulong)ncred.LastWritten.dwHighDateTime << 32 | (ulong)ncred.LastWritten.dwLowDateTime));
             }
-            catch (ArgumentOutOfRangeException e)
-            { }
+            catch
+            {
+            }
         }
 
         public Credential(System.Net.NetworkCredential credential)

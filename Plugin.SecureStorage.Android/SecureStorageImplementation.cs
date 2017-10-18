@@ -175,8 +175,6 @@ namespace Plugin.SecureStorage
 			{
 				return null;
 			}
-
-			return null;
 		}
 
         /// <summary>

@@ -73,7 +73,6 @@ namespace Plugin.SecureStorage.Credentials
             // Setup the flags and variables
             credUI.cbSize = Marshal.SizeOf (credUI);
             int errorcode = 0;
-            uint dialogReturn;
             uint authPackage = 0;
 
             IntPtr outCredBuffer = new IntPtr ();
