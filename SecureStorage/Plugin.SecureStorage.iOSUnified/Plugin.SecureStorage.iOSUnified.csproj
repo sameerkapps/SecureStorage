@@ -35,9 +35,6 @@
     <DocumentationFile>bin\iPhone\Release\Plugin.SecureStorage.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\Plugin.SecureStorage\CrossSecureStorage.cs">
-      <Link>CrossSecureStorage.cs</Link>
-    </Compile>
     <Compile Include="SecureStorageImplementation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -128,10 +128,6 @@
       <Project>{7b00cd85-bd2a-4aaf-ac74-5a06a1b2109e}</Project>
       <Name>Plugin.SecureStorage.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Plugin.SecureStorage\Plugin.SecureStorage.csproj">
-      <Project>{91d47f93-718f-4014-a430-90d21b03d1d7}</Project>
-      <Name>Plugin.SecureStorage</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="..\Plugin.SecureStorage.Shared\Plugin.SecureStorage.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
