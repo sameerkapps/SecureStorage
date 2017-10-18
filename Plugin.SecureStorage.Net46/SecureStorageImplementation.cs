@@ -10,6 +10,8 @@ namespace Plugin.SecureStorage
     /// </summary>
     public class SecureStorageImplementation : SecureStorageImplementationBase
     {
+        private const string CredentialsUserName = "SecureStorageAgent";
+
         #region ISecureStorage implementation
 
         /// <summary>
@@ -55,7 +57,7 @@ namespace Plugin.SecureStorage
             try
             {
                 // create entry
-                var credential = new NetworkCredential(key, value);
+                var credential = new NetworkCredential(CredentialsUserName, value);
                 CredentialManager.SaveCredentials(key, credential);
             }
             catch
