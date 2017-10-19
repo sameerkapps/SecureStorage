@@ -6,9 +6,9 @@
     <title>Secure Storage Plugin for Xamarin and Windows</title>
     <authors>Alberto Fustinoni</authors>
     <owners>Alberto Fustinoni</owners>
-    <licenseUrl>https://github.com/aftnet/SecureStorage/blob/master/README.md</licenseUrl>
-    <projectUrl>https://github.com/aftnet/SecureStorage</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/jamesmontemagno/Xamarin-Templates/master/Plugins-Templates/icons/plugin_icon_nuget.png</iconUrl>
+    <licenseUrl>https://github.com/aftnet/SecureStoragePlugin/blob/master/README.md</licenseUrl>
+    <projectUrl>https://github.com/aftnet/SecureStoragePlugin</projectUrl>
+    <iconUrl>https://github.com/Aftnet/SecureStoragePlugin/raw/master/Icon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Provides Secure storage of key value pairs for iOS, Android and UWP apps.</description>
     <summary>Secure storage of key value pairs for iOS, Android and UWP apps.</summary>

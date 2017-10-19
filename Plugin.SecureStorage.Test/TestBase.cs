@@ -23,17 +23,21 @@ namespace Plugin.SecureStorage.Test
 
             var readValue = Target.GetValue(TestKey);
             Assert.Null(readValue);
+            Assert.False(Target.HasKey(TestKey));
 
             Target.SetValue(TestKey, TestValue);
             readValue = Target.GetValue(TestKey);
             Assert.Equal(TestValue, readValue);
+            Assert.True(Target.HasKey(TestKey));
 
             readValue = Target.GetValue(TestKey2);
             Assert.Null(readValue);
+            Assert.False(Target.HasKey(TestKey2));
 
             Target.DeleteKey(TestKey);
             readValue = Target.GetValue(TestKey);
             Assert.Null(readValue);
+            Assert.False(Target.HasKey(TestKey));
         }
     }
 }
