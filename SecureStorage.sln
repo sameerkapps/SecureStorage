@@ -5,6 +5,7 @@ VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{86211188-62DD-47CA-A705-26A4C7A076CB}"
 	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
 		SecureStorage.Plugin.nuspec = SecureStorage.Plugin.nuspec
 	EndProjectSection
 EndProject

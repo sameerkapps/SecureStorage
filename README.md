@@ -23,7 +23,7 @@ CrossSecureStorage.Current.SetValue(“SessionToken”, “1234567890”);
 var sessionToken = CrossSecureStorage.Current.GetValue (“SessionToken”);
 ```
 
-**DeleteKey** - Deletes the key and corresponding value from the storage.
+**DeleteKey** - Deletes the key and corresponding value from storage.
 
 ``` 
 CrossSecureStorage.Current.DeleteKey(“SessionToken”);
