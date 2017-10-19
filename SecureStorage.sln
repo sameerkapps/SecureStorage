@@ -34,6 +34,7 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Plugin.SecureStorage.Shared\Plugin.SecureStorage.Shared.projitems*{0eda6bc1-0f4a-47c1-82c6-7d03c8621229}*SharedItemsImports = 4
 		Plugin.SecureStorage.Shared\Plugin.SecureStorage.Shared.projitems*{1476a74c-e552-4003-a4d5-2deac0382ed8}*SharedItemsImports = 4
+		Plugin.SecureStorage.Test.Shared\Plugin.SecureStorage.Test.Shared.projitems*{4c7ea68c-f6e7-46c2-b87f-ece5b02eeec8}*SharedItemsImports = 4
 		Plugin.SecureStorage.Shared\Plugin.SecureStorage.Shared.projitems*{566acc48-b3c9-4f2a-a112-cd76e30d4bcd}*SharedItemsImports = 4
 		Plugin.SecureStorage.Shared\Plugin.SecureStorage.Shared.projitems*{57008806-5883-47c4-84bc-ac37520cfdfb}*SharedItemsImports = 13
 		Plugin.SecureStorage.Test.Shared\Plugin.SecureStorage.Test.Shared.projitems*{67293509-57f4-4016-8d9d-9f6fdc34e00e}*SharedItemsImports = 13
