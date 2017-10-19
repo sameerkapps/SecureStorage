@@ -12,8 +12,8 @@ namespace Plugin.SecureStorage
     /// Android implementation of secure storage. Done using KeyStore
     /// Make sure to initialize store password for Android.
     /// </summary>
-    public class SecureStorageImplementation : SecureStorageImplementationBase
-  {
+    internal class SecureStorageImplementation : SecureStorageImplementationBase
+    {
         /// <summary>
         /// Name of the storage file.
         /// </summary>
@@ -81,7 +81,7 @@ namespace Plugin.SecureStorage
 
             // get the entry from the store
             // if it does not exist, return the default value
-			KeyStore.SecretKeyEntry entry = GetSecretKeyEntry(key);
+            KeyStore.SecretKeyEntry entry = GetSecretKeyEntry(key);
 
             if (entry != null)
             {
@@ -127,7 +127,7 @@ namespace Plugin.SecureStorage
             base.DeleteKey(key);
 
             // retrieve the entry
-			KeyStore.SecretKeyEntry entry = GetSecretKeyEntry(key);
+            KeyStore.SecretKeyEntry entry = GetSecretKeyEntry(key);
 
             // if entry exists, delete from store, save the store and return true
             if (entry != null)
@@ -150,7 +150,7 @@ namespace Plugin.SecureStorage
             // validate if key is valid
             base.HasKey(key);
             // retrieve to see, if it exists
-			return GetSecretKeyEntry(key) != null;
+            return GetSecretKeyEntry(key) != null;
         }
 
         #endregion
@@ -164,18 +164,18 @@ namespace Plugin.SecureStorage
             }
         }
 
-		// retrieves the secret key entry from the store
-		private KeyStore.SecretKeyEntry GetSecretKeyEntry(string key)
-		{
-			try
-			{
-				return _store.GetEntry(key, _passwordProtection) as KeyStore.SecretKeyEntry;
-			}
-			catch(UnrecoverableKeyException) // swallow this exception. Can be caused by invalid key
-			{
-				return null;
-			}
-		}
+        // retrieves the secret key entry from the store
+        private KeyStore.SecretKeyEntry GetSecretKeyEntry(string key)
+        {
+            try
+            {
+                return _store.GetEntry(key, _passwordProtection) as KeyStore.SecretKeyEntry;
+            }
+            catch (UnrecoverableKeyException) // swallow this exception. Can be caused by invalid key
+            {
+                return null;
+            }
+        }
 
         /// <summary>
         /// Class for storing string as entry

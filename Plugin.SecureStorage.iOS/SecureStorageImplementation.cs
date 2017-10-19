@@ -9,7 +9,7 @@ namespace Plugin.SecureStorage
     /// Secure storage implementation for iOS.
     /// It is primarily for storing secure strings such as generic password.
     /// </summary>
-    public class SecureStorageImplementation : SecureStorageImplementationBase
+    internal class SecureStorageImplementation : SecureStorageImplementationBase
     {
         /// <summary>
         /// Default constructor

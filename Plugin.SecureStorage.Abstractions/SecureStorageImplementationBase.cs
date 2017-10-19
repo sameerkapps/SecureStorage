@@ -9,7 +9,7 @@ namespace Plugin.SecureStorage.Abstractions
 	/// <summary>
 	/// This base class provides validation functionality that is common across platforms
 	/// </summary>
-	public abstract class SecureStorageImplementationBase : ISecureStorage
+	internal abstract class SecureStorageImplementationBase : ISecureStorage
 	{
         /// <summary>
         /// Default constructor

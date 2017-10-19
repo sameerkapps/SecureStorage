@@ -8,7 +8,7 @@ namespace Plugin.SecureStorage
     /// Android implementation of secure storage. Done using KeyStore
     /// Make sure to initialize store password for Android.
     /// </summary>
-    public class SecureStorageImplementation : SecureStorageImplementationBase
+    internal class SecureStorageImplementation : SecureStorageImplementationBase
     {
         private const string CredentialsUserName = "SecureStorageAgent";
 
