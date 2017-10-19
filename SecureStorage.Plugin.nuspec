@@ -26,14 +26,14 @@
   </metadata>
   <files>
     <!--Core-->
-    <file src="SecureStorage\Plugin.SecureStorage\bin\Release\netstandard1.0\Plugin.SecureStorage.*" target="lib\netstandard1.0" />
+    <file src="Plugin.SecureStorage\bin\Release\netstandard1.0\Plugin.SecureStorage.*" target="lib\netstandard1.0" />
     <!--UWP-->
-    <file src="SecureStorage\Plugin.SecureStorage.UWP\bin\Release\Plugin.SecureStorage.*" target="lib\uap10.0" />
+    <file src="Plugin.SecureStorage.UWP\bin\Release\Plugin.SecureStorage.*" target="lib\uap10.0" />
     <!--Windows Desktop-->
-    <file src="SecureStorage\Plugin.SecureStorage.Net46\bin\Release\Plugin.SecureStorage.*" target="lib\net46" />
+    <file src="Plugin.SecureStorage.Net46\bin\Release\Plugin.SecureStorage.*" target="lib\net46" />
     <!--Xamarin.Android-->
-    <file src="SecureStorage\Plugin.SecureStorage.Android\bin\Release\Plugin.SecureStorage.*" target="lib\MonoAndroid10" />
+    <file src="Plugin.SecureStorage.Android\bin\Release\Plugin.SecureStorage.*" target="lib\MonoAndroid10" />
     <!--Xamarin.iOS Unified-->
-    <file src="SecureStorage\Plugin.SecureStorage.iOS\bin\Release\Plugin.SecureStorage.*" target="lib\Xamarin.iOS10" />
+    <file src="Plugin.SecureStorage.iOS\bin\Release\Plugin.SecureStorage.*" target="lib\Xamarin.iOS10" />
   </files>
 </package>
