@@ -1,5 +1,6 @@
 using Plugin.SecureStorage.Abstractions;
 using System.Linq;
+using Windows.ApplicationModel;
 using Windows.Security.Credentials;
 
 namespace Plugin.SecureStorage
@@ -10,7 +11,7 @@ namespace Plugin.SecureStorage
     /// </summary>
     public class SecureStorageImplementation : SecureStorageImplementationBase
     {
-        private const string CredentialsUserName = "SecureStorageAgent";
+        private string CredentialsResource => Package.Current.Id.Name;
 
         // Windows password vault
         private readonly PasswordVault Vault;
@@ -69,7 +70,7 @@ namespace Plugin.SecureStorage
             try
             {
                 // create entry
-                var credential = new PasswordCredential(key, CredentialsUserName, value);
+                var credential = new PasswordCredential(CredentialsResource, key, value);
                 Vault.Add(credential);
             }
             catch
@@ -124,7 +125,7 @@ namespace Plugin.SecureStorage
         private PasswordCredential GetCredential(string key)
         {
             var credentials = Vault.RetrieveAll();
-            var output = credentials.FirstOrDefault(d => d.Resource == key);
+            var output = credentials.FirstOrDefault(d => d.UserName == key);
             return output;
         }
     }
