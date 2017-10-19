@@ -45,6 +45,7 @@ namespace Plugin.SecureStorage
                 return defaultValue;
             }
 
+            output.RetrievePassword();
             return output.Password;
         }
 
@@ -122,8 +123,8 @@ namespace Plugin.SecureStorage
 
         private PasswordCredential GetCredential(string key)
         {
-            var credentials = Vault.FindAllByResource(key);
-            var output = credentials.FirstOrDefault();
+            var credentials = Vault.RetrieveAll();
+            var output = credentials.FirstOrDefault(d => d.Resource == key);
             return output;
         }
     }
