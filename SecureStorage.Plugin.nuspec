@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata minClientVersion="3.0.0">
-    <id>Plugin.SecureStorage</id>
-    <version>1.2.2</version>
+    <id>Aftnet.Plugin.SecureStorage</id>
+    <version>1.0.0</version>
     <title>Secure Storage Plugin for Xamarin and Windows</title>
     <authors>Alberto Fustinoni</authors>
     <owners>Alberto Fustinoni</owners>
-    <licenseUrl>https://github.com/sameerkapps/SecureStorage/blob/master/README.md</licenseUrl>
-    <projectUrl>https://github.com/sameerkapps/SecureStorage</projectUrl>
+    <licenseUrl>https://github.com/aftnet/SecureStorage/blob/master/README.md</licenseUrl>
+    <projectUrl>https://github.com/aftnet/SecureStorage</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/jamesmontemagno/Xamarin-Templates/master/Plugins-Templates/icons/plugin_icon_nuget.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Provides Secure storage of key value pairs for iOS, Android and UWP apps.</description>
     <summary>Secure storage of key value pairs for iOS, Android and UWP apps.</summary>
-    <tags>xamarin, pcl, xam.pcl, plugin, plugin for xamarin, android, xamarin.forms, ios, secure, storage, UWP</tags>
+    <tags>xamarin, plugin, plugin for xamarin, android, xamarin.forms, ios, secure, storage, UWP</tags>
     <dependencies>
       <group targetFramework="net46">
       </group>
