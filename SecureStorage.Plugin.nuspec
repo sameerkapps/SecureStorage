@@ -69,6 +69,11 @@
      <file src="SecureStorage\Plugin.SecureStorage.Abstractions\bin\Release\Plugin.SecureStorage.Abstractions.dll" target="lib\Xamarin.iOS10\Plugin.SecureStorage.Abstractions.dll" />
      <file src="SecureStorage\Plugin.SecureStorage.Abstractions\bin\Release\Plugin.SecureStorage.Abstractions.xml" target="lib\Xamarin.iOS10\Plugin.SecureStorage.Abstractions.xml" />
 
+     <!--Tizen-->
+     <file src="SecureStorage\Plugin.SecureStorage.Tizen\bin\Release\tizen40\Plugin.SecureStorage.dll" target="lib\tizen40\Plugin.SecureStorage.dll" />
+     <file src="SecureStorage\Plugin.SecureStorage.Tizen\bin\Release\tizen40\Plugin.SecureStorage.pdb" target="lib\tizen40\Plugin.SecureStorage.pdb" />
+     <file src="SecureStorage\Plugin.SecureStorage.Abstractions\bin\Release\tizen40\Plugin.SecureStorage.Abstractions.dll" target="lib\tizen40\Plugin.SecureStorage.Abstractions.dll" />
+     <file src="SecureStorage\Plugin.SecureStorage.Abstractions\bin\Release\tizen40\Plugin.SecureStorage.Abstractions.pdb" target="lib\tizen40\Plugin.SecureStorage.Abstractions.pdb" />
 
 
    </files>
