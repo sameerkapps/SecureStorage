@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Property Group for Tizen Project -->
+  <PropertyGroup>
+    <TargetFramework>tizen40</TargetFramework>
+    <TizenCreateTpkOnBuild>false</TizenCreateTpkOnBuild>
+    <AssemblyName>Plugin.SecureStorage</AssemblyName>
+    <RootNamespace>Plugin.SecureStorage</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Plugin.SecureStorage\CrossSecureStorage.cs">
+      <Link>CrossSecureStorage.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Plugin.SecureStorage.Abstractions\Plugin.SecureStorage.Abstractions.csproj">
+      <Project>{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}</Project>
+      <Name>Plugin.SecureStorage.Abstractions</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+  <!-- Include Nuget Package for Tizen Project building -->
+  <ItemGroup>
+    <PackageReference Include="Tizen.NET" Version="4.0.0">
+      <ExcludeAssets>Runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Tizen.NET.Sdk" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
