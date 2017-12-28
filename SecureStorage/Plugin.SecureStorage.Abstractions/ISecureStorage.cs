@@ -1,4 +1,8 @@
-﻿using System;
+﻿////////////////////////////////////////////////////////
+// Copyright (c) 2017 Sameer Khandekar                //
+// License: MIT License.                              //
+////////////////////////////////////////////////////////
+using System;
 
 namespace Plugin.SecureStorage.Abstractions
 {

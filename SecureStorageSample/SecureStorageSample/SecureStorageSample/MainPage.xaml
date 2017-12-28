@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SecureStorageSample"
+             x:Class="SecureStorageSample.MainPage">
+
+    <ContentPage.Content>
+        <StackLayout Padding="0,20,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label 
+				Grid.Row="0" 
+				Grid.Column="0" 
+				HorizontalOptions="Center"
+				VerticalOptions="Center"
+				Text="Key" />
+                <Entry 
+				Grid.Row="0" 
+				Grid.Column="1" 
+				VerticalOptions="Center"
+				Text="{Binding Key, Mode=TwoWay}" />
+
+                <Button 
+				Grid.Row="1" 
+				Grid.Column="0" 
+				Text="Set Value"
+				Command="{Binding SetCommand}" />
+                <Entry 
+				Grid.Row="1" 
+				Grid.Column="1" 
+				Text="{Binding SetVal, Mode=TwoWay}" />
+
+                <Button 
+				Grid.Row="2" 
+				Grid.Column="0" 
+				Text="Get Value"
+				Command="{Binding GetCommand}" />
+                <Label 
+				Grid.Row="2" 
+				Grid.Column="1" 
+				VerticalOptions="Center"
+				Text="{Binding GetVal, Mode=OneWay}" />
+
+                <Button 
+				Grid.Row="3" 
+				Grid.Column="0" 
+				Text="Has Value"
+				Command="{Binding HasCommand}" />
+                <Label 
+				Grid.Row="3" 
+				Grid.Column="1" 
+				VerticalOptions="Center"
+				Text="{Binding HasVal, Mode=OneWay}" />
+
+                <Button 
+				Grid.Row="4" 
+				Grid.Column="0" 
+				Text="Delete Key"
+				Command="{Binding DeleteCommand}" />
+
+                <Label 
+				Grid.Row="5" 
+				Grid.Column="0" 
+				Grid.ColumnSpan="2"
+				FontSize="12"
+				MinimumHeightRequest="50"
+				HorizontalOptions="CenterAndExpand"
+				Text="{Binding ErrMessage, Mode=OneWay}" />
+
+            </Grid>
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,4 +1,8 @@
-﻿using System;
+﻿////////////////////////////////////////////////////////
+// Copyright (c) 2017 Sameer Khandekar                //
+// License: MIT License.                              //
+////////////////////////////////////////////////////////
+using System;
 using Plugin.SecureStorage.Abstractions;
 
 namespace Plugin.SecureStorage
@@ -26,10 +30,16 @@ namespace Plugin.SecureStorage
       }
     }
 
-    static ISecureStorage CreateSecureStorage()
+        /// <summary>
+        /// Developer can know, if the platform is supported or not
+        /// </summary>
+        public static bool IsSupported => Implementation.Value == null ? false : true;
+
+        static ISecureStorage CreateSecureStorage()
     {
-#if PORTABLE
-        return null;
+
+#if NETSTANDARD1_0
+            return null;
 #else
         return new SecureStorageImplementation();
 #endif

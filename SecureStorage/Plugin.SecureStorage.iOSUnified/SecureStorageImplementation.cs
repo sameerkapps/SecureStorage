@@ -1,7 +1,12 @@
-using Plugin.SecureStorage.Abstractions;
+////////////////////////////////////////////////////////
+// Copyright (c) 2017 Sameer Khandekar                //
+// License: MIT License.                              //
+////////////////////////////////////////////////////////
 using System;
 using Security;
 using Foundation;
+
+using Plugin.SecureStorage.Abstractions;
 
 namespace Plugin.SecureStorage
 {
@@ -11,13 +16,6 @@ namespace Plugin.SecureStorage
     /// </summary>
     public class SecureStorageImplementation : SecureStorageImplementationBase
     {
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public SecureStorageImplementation()
-        {
-        }
-
         #region ISecureStorage implementation
         /// <summary>
         /// Retrieves the value from storage.
@@ -88,7 +86,7 @@ namespace Plugin.SecureStorage
         /// <param name="val">Value.</param>
         private SecStatusCode AddRecord(string key, string val)
         {
-            var sr = new SecRecord(SecKind.GenericPassword);
+            var sr = new SecRecord(StoreSecKind);
             sr.Account = key;
             sr.ValueData = NSData.FromString(val);
 
@@ -104,7 +102,7 @@ namespace Plugin.SecureStorage
         private SecRecord GetRecord(string key, out SecStatusCode ssc)
         {
             // create an instance of the record to query
-            var sr = new SecRecord(SecKind.GenericPassword);
+            var sr = new SecRecord(StoreSecKind);
             sr.Account = key;
             return SecKeyChain.QueryAsRecord(sr, out ssc);
         }
@@ -123,7 +121,7 @@ namespace Plugin.SecureStorage
             if (ssc == SecStatusCode.Success)
             {
                 // this has to be different that the one queried
-                var sr = new SecRecord(SecKind.GenericPassword);
+                var sr = new SecRecord(StoreSecKind);
                 sr.Account = key;
                 sr.ValueData = found.ValueData;
                 return SecKeyChain.Remove(sr);
@@ -131,5 +129,14 @@ namespace Plugin.SecureStorage
 
             return SecStatusCode.NoSuchKeyChain;
         }
+
+#if __MAC_OS__
+        // ref: https://developer.xamarin.com/api/type/MonoTouch.Security.SecKeyChain/
+        // MacOS is limited to a single kind of password (SecKind.InternetPassword).
+        private const SecKind StoreSecKind = SecKind.InternetPassword;
+#else
+        private const SecKind StoreSecKind = SecKind.GenericPassword;
+#endif
+
     }
 }

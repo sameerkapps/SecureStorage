@@ -1,7 +1,7 @@
-﻿// Copyrights Sameeer Khandekar
-// This code is for viewing only. 
-// If you need it to use for any other reason, please contact the author.
-
+﻿////////////////////////////////////////////////////////
+// Copyright (c) 2017 Sameer Khandekar                //
+// License: MIT License.                              //
+////////////////////////////////////////////////////////
 using System;
 
 namespace Plugin.SecureStorage.Abstractions

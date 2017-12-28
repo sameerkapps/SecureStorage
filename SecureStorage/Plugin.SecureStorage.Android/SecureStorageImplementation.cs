@@ -1,10 +1,16 @@
-using Plugin.SecureStorage.Abstractions;
+////////////////////////////////////////////////////////
+// Copyright (c) 2017 Sameer Khandekar                //
+// License: MIT License.                              //
+////////////////////////////////////////////////////////
 using System;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Text;
 using Java.Security;
 using Javax.Crypto;
+using Android.OS;
+
+using Plugin.SecureStorage.Abstractions;
 
 namespace Plugin.SecureStorage
 {
@@ -20,9 +26,11 @@ namespace Plugin.SecureStorage
         public static string StorageFile = "Util.SecureStorage";
 
         /// <summary>
-        /// Password for storage
+        /// Password for storage. The default value is the serial number of the hardware of the device.
+        /// It is expected to be unique per device. But can be found out from the device.
+        /// To prevent it, assign your own password and obfuscate the app.
         /// </summary>
-        public static string StoragePassword;
+        public static string StoragePassword = Build.Serial;
 
         private readonly char[] StoragePasswordArray;
 

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <!-- Include Nuget Package for Xamarin building -->
+  <ItemGroup>
+    <PackageReference Include="sameerIOTApps.Plugin.SecureStorage" Version="2.0.0" />
+    <PackageReference Include="Xamarin.Forms" Version="2.4.0.18342" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
