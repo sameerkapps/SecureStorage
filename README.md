@@ -57,7 +57,11 @@ In the UWP Apps, the data is stored in the password vault. It has a built in lim
 * Abstraction Layer - Now compatible with .net standard
 * iOS - No special changes
 * Android - Hardware serial number is the default password
-* UWP - New platform in 2.0.0 with limitation of 10 values.
+* UWP - New platform in 2.0.0. It has the following limitations.
+    
+        UWP Password vault has limitation of 10 values per app
+        The value cannot be set as null or empty string. (Delete the key instead.)
+
 * Mac - New platform in 2.0.0
 * Tizen - New platform in 2.0.0
 * Windows Phone 8.X - Retired. If you want to use it, it is there in 1.2.2 
