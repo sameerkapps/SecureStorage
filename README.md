@@ -9,7 +9,7 @@ The supported platforms include:
 * MacOS (OSX)
 * Tizen
 
-It has easy to use API of key-value pairs. The pairs are saved using platform specific encryption mechanism. It has no dependencies on any packages (including Xamarin.Forms, MVVMCross.). And can be used by any Xamarin or UWP or TIzen app. It is open source.
+It has easy to use API of key-value pairs. The pairs are saved using platform specific encryption mechanism. It has no dependencies on any packages (including Xamarin.Forms, MVVMCross.). And can be used by any Xamarin or UWP or Tizen app. It is open source.
 
 **Note**
 
@@ -74,7 +74,7 @@ Plugin: http://www.nuget.org/packages/sameerIOTApps.Plugin.SecureStorage/
 Blog: https://sameerkapps.wordpress.com/2016/02/01/secure-storage-plugin-for-xamarin/
 
 
-#License
+# License
 MIT License. 
 
 
