@@ -53,6 +53,15 @@ Make sure that you obfuscate the app so the password is not reverse engineered.
 
 In the UWP Apps, the data is stored in the password vault. It has a built in limit of 10 values per app.
 
+The plugin can be found here:
+
+https://www.nuget.org/packages/sameerIOTApps.Plugin.SecureStorage/
+
+The sample apps on GitHub show how to use it in Xamarin and in Tizen Apps.
+
+Blog:
+https://sameerkapps.wordpress.com/2016/02/01/secure-storage-plugin-for-xamarin/
+
 # Changes in 2.0.0
 * Abstraction Layer - Now compatible with .net standard
 * iOS - No special changes
@@ -65,14 +74,6 @@ In the UWP Apps, the data is stored in the password vault. It has a built in lim
 * Mac - New platform in 2.0.0
 * Tizen - New platform in 2.0.0
 * Windows Phone 8.X - Retired. If you want to use it, it is there in 1.2.2 
-
-
-The sample apps shows how to use it in Xamarin and in Tizen Apps.
-
-Plugin: http://www.nuget.org/packages/sameerIOTApps.Plugin.SecureStorage/
-
-Blog: https://sameerkapps.wordpress.com/2016/02/01/secure-storage-plugin-for-xamarin/
-
 
 # License
 MIT License. 
