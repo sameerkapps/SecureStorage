@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="sameerIOTApps.Plugin.SecureStorage" Version="2.0.0" />
-    <PackageReference Include="Xamarin.Forms" Version="2.4.0.91020" />
+    <PackageReference Include="sameerIOTApps.Plugin.SecureStorage" Version="2.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
   </ItemGroup>
 
   <ItemGroup>
