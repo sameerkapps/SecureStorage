@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
-       <id>sameerIOTApps.Plugin.SecureStorage</id>
-       <version>2.0.1</version>
-       <title>Secure Storage Plugin for Xamarin, UWP, MacOS (OSX), iOS, Android and Tizen</title>
-       <authors>Sameer Khandekar</authors>
-       <owners>Sameer Khandekar</owners>
+       <id>sameerIOTApps.Plugin.SecureStorage-updated</id>
+       <version>2.0.2</version>
+       <title>Secure Storage Plugin for Xamarin, MacOS (OSX), iOS, Android and Tizen</title>
+       <authors>Sameer Khandekar, Vikram Mahendrakar</authors>
+       <owners>Sameer Khandekar, Vikram Mahendrakar</owners>
        <licenseUrl>https://github.com/sameerkapps/SecureStorage/blob/master/README.md</licenseUrl>
        <projectUrl>https://github.com/sameerkapps/SecureStorage</projectUrl>
      
@@ -13,10 +13,16 @@
      
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
-         Provides Secure storage of key value pairs for iOS, Android, UWP, MacOS(OSX) and Tizen apps.
+         Provides Secure storage of key value pairs for iOS, Android, MacOS(OSX) and Tizen apps.
        </description>
-       <summary>Secure storage of key value pairs for iOS, Android, UWP, MacOS(OSX) and Tizen apps.</summary>
-       <tags>xamarin, .netstandard, pcl, xam.pcl, plugin, plugin for xamarin, android, xamarin.forms, ios, secure, storage, UWP, MacOS, Tizen.net, Samsung</tags>
+       <summary>Secure storage of key value pairs for iOS, Android, MacOS(OSX) and Tizen apps.</summary>
+       <tags>xamarin, .netstandard, pcl, xam.pcl, plugin, plugin for xamarin, android, xamarin.forms, ios, secure, storage, MacOS, Tizen.net, Samsung</tags>
+       <releaseNotes>
+       [2.0.2]
+       [Update] Removed Device.Serial as default password as it is causing runtime excpetion.
+       [Update] Updated TargetFrameworkVersion to 8.0
+       [Update] UWP has been temporarrily removed.
+       </releaseNotes>
        <dependencies>
        </dependencies>
    </metadata>
@@ -40,10 +46,6 @@
      <!--Tizen-->
      <file src="Plugin.SecureStorage.Tizen\bin\Release\tizen40\Plugin.SecureStorage.dll" target="lib\tizen40\Plugin.SecureStorage.dll" />
      <file src="Plugin.SecureStorage.Abstractions\bin\Release\netstandard1.0\Plugin.SecureStorage.Abstractions.dll" target="lib\tizen40\Plugin.SecureStorage.Abstractions.dll" />
-
-     <!--Xamarin.UWP-->
-     <file src="Plugin.SecureStorage.UWP\bin\Release\Plugin.SecureStorage.dll" target="lib\UAP10\Plugin.SecureStorage.dll" />
-     <file src="Plugin.SecureStorage.Abstractions\bin\Release\netstandard1.0\Plugin.SecureStorage.Abstractions.dll" target="lib\UAP10\Plugin.SecureStorage.Abstractions.dll" />
-
+    
    </files>
 </package>
