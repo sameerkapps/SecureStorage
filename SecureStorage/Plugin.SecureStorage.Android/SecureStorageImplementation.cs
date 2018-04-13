@@ -26,11 +26,9 @@ namespace Plugin.SecureStorage
         public static string StorageFile = "Util.SecureStorage";
 
         /// <summary>
-        /// Password for storage. The default value is the serial number of the hardware of the device.
-        /// It is expected to be unique per device. But can be found out from the device.
-        /// To prevent it, assign your own password and obfuscate the app.
+        /// Password for storage. Assign your own password and obfuscate the app.
         /// </summary>
-        public static string StoragePassword = Build.Serial;
+        public static string StoragePassword = "Replace With Your Password";
 
         private readonly char[] StoragePasswordArray;
 
