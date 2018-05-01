@@ -151,9 +151,9 @@
     <PackageReference Include="sameerIOTApps.Plugin.SecureStorage">
       <Version>2.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.6" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.8" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>2.5.0.122203</Version>
+      <Version>2.5.0.280555</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

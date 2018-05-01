@@ -9,7 +9,8 @@ using System.Windows.Input;
 
 using Xamarin.Forms;
 
-using Plugin.SecureStorage;
+using Plugin.SecureStorage.Abstractions;
+using SecureStorageSample.PlugInServices;
 
 namespace SecureStorageSample.ViewModels
 {
@@ -20,6 +21,9 @@ namespace SecureStorageSample.ViewModels
     {
         public MainPageViewModel()
         {
+            // get the secure storage
+            _secureStorage = DependencyService.Get<IPlugInProvider>().SecureStorage;
+
             SetCommand = new Command(ExecuteSetCommand);
             GetCommand = new Command(ExecuteGetCommand);
             HasCommand = new Command(ExecuteHasCommand);
@@ -140,7 +144,7 @@ namespace SecureStorageSample.ViewModels
             ErrMessage = string.Empty;
             try
             {
-                CrossSecureStorage.Current.SetValue(Key, SetVal);
+                _secureStorage.SetValue(Key, SetVal);
             }
             catch (Exception ex)
             {
@@ -153,7 +157,7 @@ namespace SecureStorageSample.ViewModels
             ErrMessage = string.Empty;
             try
             {
-                GetVal = CrossSecureStorage.Current.GetValue(Key);
+                GetVal = _secureStorage.GetValue(Key);
             }
             catch (Exception ex)
             {
@@ -166,7 +170,7 @@ namespace SecureStorageSample.ViewModels
             ErrMessage = string.Empty;
             try
             {
-                HasVal = CrossSecureStorage.Current.HasKey(Key) ? "Y" : "N";
+                HasVal = _secureStorage.HasKey(Key) ? "Y" : "N";
             }
             catch (Exception ex)
             {
@@ -179,9 +183,13 @@ namespace SecureStorageSample.ViewModels
             ErrMessage = string.Empty;
             try
             {
-                CrossSecureStorage.Current.DeleteKey(Key);
-                GetVal = string.Empty;
-                HasVal = string.Empty;
+                bool success = _secureStorage.DeleteKey(Key);
+                ErrMessage = success.ToString();
+                if (success)
+                {
+                    GetVal = string.Empty;
+                    HasVal = string.Empty;
+                }
             }
             catch (Exception ex)
             {
@@ -201,6 +209,13 @@ namespace SecureStorageSample.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        #endregion
+
+        #region private fields
+        /// <summary>
+        /// Storage plugin
+        /// </summary>
+        private readonly ISecureStorage _secureStorage;
         #endregion
     }
 }

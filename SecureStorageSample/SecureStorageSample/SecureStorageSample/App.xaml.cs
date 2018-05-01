@@ -5,6 +5,7 @@ using System.Text;
 
 using Xamarin.Forms;
 using SecureStorageSample.ViewModels;
+using SecureStorageSample.PlugInServices;
 
 namespace SecureStorageSample
 {
@@ -13,11 +14,12 @@ namespace SecureStorageSample
         public App()
         {
             InitializeComponent();
+            RegisterImplementations();
             var vm = new MainPageViewModel();
             MainPage = new SecureStorageSample.MainPage() { BindingContext = vm };
 		}
 
-		protected override void OnStart ()
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}
@@ -31,5 +33,10 @@ namespace SecureStorageSample
 		{
 			// Handle when your app resumes
 		}
-	}
+
+        private void RegisterImplementations()
+        {
+            DependencyService.Register<IPlugInProvider, PlugInProvider>();
+        }
+    }
 }

@@ -20,63 +20,72 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Label 
-				Grid.Row="0" 
-				Grid.Column="0" 
-				HorizontalOptions="Center"
-				VerticalOptions="Center"
-				Text="Key" />
+				    Grid.Row="0" 
+				    Grid.Column="0" 
+				    HorizontalOptions="Center"
+				    VerticalOptions="Center"
+				    Text="Key" />
                 <Entry 
-				Grid.Row="0" 
-				Grid.Column="1" 
-				VerticalOptions="Center"
-				Text="{Binding Key, Mode=TwoWay}" />
+				    Grid.Row="0" 
+				    Grid.Column="1" 
+                    AutomationId="entryKey"
+				    VerticalOptions="Center"
+				    Text="{Binding Key, Mode=TwoWay}" />
 
                 <Button 
-				Grid.Row="1" 
-				Grid.Column="0" 
-				Text="Set Value"
-				Command="{Binding SetCommand}" />
+				    Grid.Row="1" 
+				    Grid.Column="0" 
+                    AutomationId="btnSetValue"
+				    Text="Set Value"
+				    Command="{Binding SetCommand}" />
                 <Entry 
-				Grid.Row="1" 
-				Grid.Column="1" 
-				Text="{Binding SetVal, Mode=TwoWay}" />
+				    Grid.Row="1" 
+				    Grid.Column="1" 
+                    AutomationId="entryValue"
+				    Text="{Binding SetVal, Mode=TwoWay}" />
 
                 <Button 
-				Grid.Row="2" 
-				Grid.Column="0" 
-				Text="Get Value"
-				Command="{Binding GetCommand}" />
+				    Grid.Row="2" 
+				    Grid.Column="0" 
+                    AutomationId="btnGetValue"
+				    Text="Get Value"
+				    Command="{Binding GetCommand}" />
                 <Label 
-				Grid.Row="2" 
-				Grid.Column="1" 
-				VerticalOptions="Center"
-				Text="{Binding GetVal, Mode=OneWay}" />
+				    Grid.Row="2" 
+				    Grid.Column="1" 
+                    AutomationId="lblGetValue"
+				    VerticalOptions="Center"
+				    Text="{Binding GetVal, Mode=OneWay}" />
 
                 <Button 
-				Grid.Row="3" 
-				Grid.Column="0" 
-				Text="Has Value"
-				Command="{Binding HasCommand}" />
+				    Grid.Row="3" 
+				    Grid.Column="0" 
+                    AutomationId="btnHasCommand"
+				    Text="Has Value"
+				    Command="{Binding HasCommand}" />
                 <Label 
-				Grid.Row="3" 
-				Grid.Column="1" 
-				VerticalOptions="Center"
-				Text="{Binding HasVal, Mode=OneWay}" />
+				    Grid.Row="3" 
+				    Grid.Column="1" 
+                    AutomationId="lblHasCommand"
+				    VerticalOptions="Center"
+				    Text="{Binding HasVal, Mode=OneWay}" />
 
                 <Button 
-				Grid.Row="4" 
-				Grid.Column="0" 
-				Text="Delete Key"
-				Command="{Binding DeleteCommand}" />
+				    Grid.Row="4" 
+				    Grid.Column="0" 
+                    AutomationId="btnDelCommand"
+				    Text="Delete Key"
+				    Command="{Binding DeleteCommand}" />
 
                 <Label 
-				Grid.Row="5" 
-				Grid.Column="0" 
-				Grid.ColumnSpan="2"
-				FontSize="12"
-				MinimumHeightRequest="50"
-				HorizontalOptions="CenterAndExpand"
-				Text="{Binding ErrMessage, Mode=OneWay}" />
+				    Grid.Row="5" 
+				    Grid.Column="0" 
+				    Grid.ColumnSpan="2"
+                    AutomationId="lblErrMessage"
+				    FontSize="12"
+				    MinimumHeightRequest="50"
+				    HorizontalOptions="CenterAndExpand"
+				    Text="{Binding ErrMessage, Mode=OneWay}" />
 
             </Grid>
         </StackLayout>
