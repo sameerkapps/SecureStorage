@@ -44,13 +44,6 @@ CrossSecureStorage.Current.DeleteKey(“SessionToken”);
 var exists = CrossSecureStorage.Current.HasKey (“SessionToken”);
 ``` 
 
-NOTE: In Android Apps,  by default the password for storage is the hardware serial number. So it is unique per device. Should you want to choose your password, it can be done as follows
-
-```
-SecureStorageImplementation.StoragePassword = "Your Password";
-```
-Make sure that you obfuscate the app so the password is not reverse engineered.
-
 In the UWP Apps, the data is stored in the password vault. It has a built in limit of 10 values per app.
 
 The plugin can be found here:
@@ -61,6 +54,30 @@ The sample apps on GitHub show how to use it in Xamarin and in Tizen Apps.
 
 Blog:
 https://sameerkapps.wordpress.com/2016/02/01/secure-storage-plugin-for-xamarin/
+
+# Breaking Changes in 2.5.0
+* iOS - The KeyChain access level is now set at AfterFirstUnlock as default. This will let app set the values
+in the background mode.
+As a result, the keys stored using the earlier versions will not be accessible with this version. To maintain backward compatibility,
+add a line to AppDelegate as follows:
+```
+SecureStorageImplementation.DefaultAccessible = Security.SecAccessible.Invalid;
+````
+
+* Android - This version provides two storage types:
+1. Android Key Store - This is now the default mechanism for storage. Android recommends using it as it prevents other apps from using the file.
+ref: https://developer.android.com/training/articles/keystore#WhichShouldIUse
+This is not compatible with the currently stored values.
+
+2. Password Protected File - This is provided for the backward compatibility. If you want to use this mode, set it as follows:
+```
+SecureStorageImplementation.StorageType = StorageTypes.PasswordProtectedFile;
+```
+By default the password for storage is the hardware serial number. So it is unique per device. Should you want to choose your password, it can be done as follows
+```
+ProtectedFileImplementation.StoragePassword = "YourPassword";
+```
+Make sure that you obfuscate the app so the password is not reverse engineered.
 
 # Changes in 2.0.0
 * Abstraction Layer - Now compatible with .net standard
@@ -76,9 +93,8 @@ https://sameerkapps.wordpress.com/2016/02/01/secure-storage-plugin-for-xamarin/
 * Windows Phone 8.X - Retired. If you want to use it, it is there in 1.2.2 
 
 # License
-MIT License. 
-
-
+MIT License with the following override:
+The source code can not be used to create another NuGet package for public distribution. (Private distribution within your organization is OK.)
 
 
 

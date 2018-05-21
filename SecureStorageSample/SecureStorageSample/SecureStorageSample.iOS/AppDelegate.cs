@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Plugin.SecureStorage;
 using UIKit;
 
 namespace SecureStorageSample.iOS
@@ -31,6 +32,11 @@ namespace SecureStorageSample.iOS
 #if ENABLE_TEST_CLOUD
             Xamarin.Calabash.Start();
 #endif
+            // Set the keychain accessibility if desired. Default is AfterFirstUnlock
+            // The keys stored using earlier packages (<= 2.0.1) will not be accessible with the new default
+            // To use the earlier keys, set it to Invalid :(
+            // SecureStorageImplementation.DefaultAccessible = Security.SecAccessible.Invalid;
+
             return base.FinishedLaunching(app, options);
         }
     }

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureStorageSample.iOS", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureStorageSample.UWP", "SecureStorageSample\SecureStorageSample.UWP\SecureStorageSample.UWP.csproj", "{A323FAF1-F514-42E1-A70A-1EE5D0DE55F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureStorageSample", "SecureStorageSample\SecureStorageSample\SecureStorageSample.csproj", "{0FE0C4BC-60A6-47E8-AD7B-65142BD92448}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecureStorageSample", "SecureStorageSample\SecureStorageSample\SecureStorageSample.csproj", "{0FE0C4BC-60A6-47E8-AD7B-65142BD92448}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureStorageSample.Mac", "SecureStorageSample\SecureStorageSample.Mac\SecureStorageSample.Mac.csproj", "{298F8069-522F-4EEC-A2BC-99D2568B2193}"
 EndProject

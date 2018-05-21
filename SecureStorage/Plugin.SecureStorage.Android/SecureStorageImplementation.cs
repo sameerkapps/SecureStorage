@@ -3,12 +3,6 @@
 // License: MIT License.                              //
 ////////////////////////////////////////////////////////
 using System;
-using System.IO;
-using System.IO.IsolatedStorage;
-using System.Text;
-using Java.Security;
-using Javax.Crypto;
-using Android.OS;
 
 using Plugin.SecureStorage.Abstractions;
 
@@ -18,62 +12,33 @@ namespace Plugin.SecureStorage
     /// Android implementation of secure storage. Done using KeyStore
     /// Make sure to initialize store password for Android.
     /// </summary>
-    public class SecureStorageImplementation : SecureStorageImplementationBase
+    public partial class SecureStorageImplementation : SecureStorageImplementationBase
   {
+        #region static fields
         /// <summary>
-        /// Name of the storage file.
+        /// Declare the storage type
         /// </summary>
-        public static string StorageFile = "Util.SecureStorage";
+        public static StorageTypes StorageType = StorageTypes.AndroidKeyStore;
+        #endregion
 
-        /// <summary>
-        /// Password for storage. The default value is the serial number of the hardware of the device.
-        /// It is expected to be unique per device. But can be found out from the device.
-        /// To prevent it, assign your own password and obfuscate the app.
-        /// </summary>
-        public static string StoragePassword = Build.Serial;
-
-        private readonly char[] StoragePasswordArray;
-
-        // Store for Key Value pairs
-        KeyStore _store;
-        // password protection for the store
-        KeyStore.PasswordProtection _passwordProtection;
-
+        #region constructor
         /// <summary>
         /// Default constructor created or loads the store
         /// </summary>
         public SecureStorageImplementation()
         {
-            // verify that password is set
-            if (string.IsNullOrWhiteSpace(StoragePassword))
+            if (StorageType == StorageTypes.AndroidKeyStore)
             {
-                throw new Exception($"Must set StoragePassword");
+                _implementation = new AndroidKeyStoreImplementation();
             }
-
-            StoragePasswordArray = StoragePassword.ToCharArray();
-
-            // Instantiate store and protection
-            _store = KeyStore.GetInstance(KeyStore.DefaultType);
-            _passwordProtection = new KeyStore.PasswordProtection(StoragePasswordArray);
-
-            // if store exists, load it from the file
-            try
+            else
             {
-                using (var stream = new IsolatedStorageFileStream(StorageFile, FileMode.Open, FileAccess.Read))
-                {
-                    _store.Load(stream, StoragePasswordArray);
-                }
+                _implementation = new ProtectedFileImplementation();
             }
-            catch (Exception)
-            {
-                // this will happen for the first run. As no file is expected to be present
-                _store.Load(null, StoragePasswordArray);
-            }
-
-        }
+        } 
+        #endregion
 
         #region ISecureStorage implementation
-
         /// <summary>
         /// Retrieves the value from storage.
         /// If value with the given key does not exist,
@@ -87,17 +52,7 @@ namespace Plugin.SecureStorage
             // validate using base class
             base.GetValue(key, defaultValue);
 
-            // get the entry from the store
-            // if it does not exist, return the default value
-			KeyStore.SecretKeyEntry entry = GetSecretKeyEntry(key);
-
-            if (entry != null)
-            {
-                var encodedBytes = entry.SecretKey.GetEncoded();
-                return Encoding.UTF8.GetString(encodedBytes);
-            }
-
-            return defaultValue;
+            return _implementation.GetValue(key, defaultValue);
         }
 
         /// <summary>
@@ -114,16 +69,7 @@ namespace Plugin.SecureStorage
             // validate the parameters
             base.SetValue(key, value);
 
-            // create entry
-            var secKeyEntry = new KeyStore.SecretKeyEntry(new StringKeyEntry(value));
-
-            // save it in the KeyStore
-            _store.SetEntry(key, secKeyEntry, _passwordProtection);
-
-            // save the store
-            Save();
-
-            return true;
+            return _implementation.SetValue(key, value);
         }
 
         /// <summary>
@@ -134,20 +80,7 @@ namespace Plugin.SecureStorage
             // valdiate using base class
             base.DeleteKey(key);
 
-            // retrieve the entry
-			KeyStore.SecretKeyEntry entry = GetSecretKeyEntry(key);
-
-            // if entry exists, delete from store, save the store and return true
-            if (entry != null)
-            {
-                _store.DeleteEntry(key);
-
-                Save();
-
-                return true;
-            }
-
-            return false;
+            return _implementation.DeleteKey(key);
         }
 
         /// <summary>
@@ -157,81 +90,19 @@ namespace Plugin.SecureStorage
         {
             // validate if key is valid
             base.HasKey(key);
-            // retrieve to see, if it exists
-			return GetSecretKeyEntry(key) != null;
-        }
 
+            return _implementation.HasKey(key);
+        }
         #endregion
 
-        // persists the store using password
-        private void Save()
-        {
-            using (var stream = new IsolatedStorageFileStream(StorageFile, FileMode.OpenOrCreate, FileAccess.Write))
-            {
-                _store.Store(stream, StoragePasswordArray);
-            }
-        }
-
-		// retrieves the secret key entry from the store
-		private KeyStore.SecretKeyEntry GetSecretKeyEntry(string key)
-		{
-			try
-			{
-				return _store.GetEntry(key, _passwordProtection) as KeyStore.SecretKeyEntry;
-			}
-			catch(UnrecoverableKeyException) // swallow this exception. Can be caused by invalid key
-			{
-				return null;
-			}
-
-			return null;
-		}
-
+        #region fields
         /// <summary>
-        /// Class for storing string as entry
+        /// The actual implementation as chosen by the developer
+        /// Password protected file or AndroidKeyStore
         /// </summary>
-        private class StringKeyEntry : Java.Lang.Object, ISecretKey
-        {
-            private const string AlgoName = "RAW";
+        private ISecureStorage _implementation;
+        #endregion
 
-            private byte[] _bytes;
 
-            /// <summary>
-            /// Constructor makes sure that entry is valid.
-            /// Converts it to bytes
-            /// </summary>
-            /// <param name="entry">Entry.</param>
-            public StringKeyEntry(string entry)
-            {
-                if (entry == null)
-                {
-                    throw new ArgumentNullException();
-                }
-
-                _bytes = ASCIIEncoding.UTF8.GetBytes(entry);
-            }
-
-            #region IKey implementation
-            public byte[] GetEncoded()
-            {
-                return _bytes;
-            }
-
-            public string Algorithm
-            {
-                get
-                {
-                    return AlgoName;
-                }
-            }
-            public string Format
-            {
-                get
-                {
-                    return AlgoName;
-                }
-            }
-            #endregion
-        }
     }
 }

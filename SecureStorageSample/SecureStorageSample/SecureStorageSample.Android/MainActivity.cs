@@ -19,10 +19,18 @@ namespace SecureStorageSample.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
-            // assign hardware number of the device as password.
-            // That will be unique per device. But it is still discoverable.
-            // You can choose your own password and obfuscate the app.
-            SecureStorageImplementation.StoragePassword = Build.Serial;
+            // The new default storage type for android is AndroidKeyStore.
+            // AndroidKeyStore provides the mechanism to store its own credentials that only that app can use.
+            // ref: https://developer.android.com/training/articles/keystore
+
+            // If you want backward compatibility and/or do not wish to store secure data in the AndroidKeyStore,
+            // set the storage type to password protected file. This will use "Build.Serial" as its password.
+            // SecureStorageImplementation.StorageType = StorageTypes.PasswordProtectedFile;
+
+            // If you want a different password for password protected file, set it as follows
+            // obfuscate it to prevent it from being discovered by reverse engineering.
+            // ProtectedFileImplementation.StoragePassword = "YourPassword";
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }

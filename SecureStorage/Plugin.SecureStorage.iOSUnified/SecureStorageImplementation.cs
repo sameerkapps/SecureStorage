@@ -16,6 +16,14 @@ namespace Plugin.SecureStorage
     /// </summary>
     public class SecureStorageImplementation : SecureStorageImplementationBase
     {
+        #region static props
+        /// <summary>
+        /// Determines when keychain info can be accessed
+        /// ref: https://developer.xamarin.com/api/property/MonoTouch.Security.SecRecord.Accessible/
+        /// </summary>
+        public static SecAccessible DefaultAccessible = SecAccessible.AfterFirstUnlock;
+
+        #endregion
         #region ISecureStorage implementation
         /// <summary>
         /// Retrieves the value from storage.
@@ -89,6 +97,10 @@ namespace Plugin.SecureStorage
             var sr = new SecRecord(StoreSecKind);
             sr.Account = key;
             sr.ValueData = NSData.FromString(val);
+            if (DefaultAccessible != SecAccessible.Invalid)
+            {
+                sr.Accessible = DefaultAccessible;
+            }
 
             return SecKeyChain.Add(sr);
         }
@@ -104,6 +116,11 @@ namespace Plugin.SecureStorage
             // create an instance of the record to query
             var sr = new SecRecord(StoreSecKind);
             sr.Account = key;
+            if (DefaultAccessible != SecAccessible.Invalid)
+            {
+                sr.Accessible = DefaultAccessible;
+            }
+
             return SecKeyChain.QueryAsRecord(sr, out ssc);
         }
 
@@ -124,6 +141,10 @@ namespace Plugin.SecureStorage
                 var sr = new SecRecord(StoreSecKind);
                 sr.Account = key;
                 sr.ValueData = found.ValueData;
+                if (DefaultAccessible != SecAccessible.Invalid)
+                {
+                    sr.Accessible = DefaultAccessible;
+                }
                 return SecKeyChain.Remove(sr);
             }
 
