@@ -42,6 +42,7 @@
       <Link>CrossSecureStorage.cs</Link>
     </Compile>
     <Compile Include="SecureStorageImplementation.cs" />
+    <Compile Include="KeychainMigrator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Plugin.SecureStorage.Abstractions\Plugin.SecureStorage.Abstractions.csproj">

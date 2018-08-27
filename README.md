@@ -56,13 +56,25 @@ Blog:
 https://sameerkapps.wordpress.com/2016/02/01/secure-storage-plugin-for-xamarin/
 
 # Breaking Changes in 2.5.0
-* iOS - The KeyChain access level is now set at AfterFirstUnlock as default. This will let app set the values
+* iOS 
+1. The KeyChain access level is now set at AfterFirstUnlock as default. This will let app set the values
 in the background mode.
 As a result, the keys stored using the earlier versions will not be accessible with this version. To maintain backward compatibility,
 add a line to AppDelegate as follows:
 ```
 SecureStorageImplementation.DefaultAccessible = Security.SecAccessible.Invalid;
 ````
+
+2. Keychain entries can be synchronized between devices with the same iCloud user logged in (such as iPad, iPhone, and iPod). Keychain entries created before enabling this feature will not automatically synchronize with iCloud, so this feature is disabled by default (take a look at `KeychainMigrator` class for help migrating existing keys to be synchronized). This feature can be enabled by setting a property on the instance of secure storage:
+```
+((SecureStorageImplementation)CrossSecureStorage.Current).UseCloud = true
+
+//or if using Dependency Injection, e.g., in an autofac module:
+
+builder.RegisterInstance(new KeychainStorage() { UseCloud = true; })
+                      .AsImplementedInterfaces()
+                      .SingleInstance();
+```
 
 * Android - This version provides two storage types:
 1. Android Key Store - This is now the default mechanism for storage. Android recommends using it as it prevents other apps from using the file.

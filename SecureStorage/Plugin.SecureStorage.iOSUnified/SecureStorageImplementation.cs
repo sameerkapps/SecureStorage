@@ -23,6 +23,18 @@ namespace Plugin.SecureStorage
         /// </summary>
         public static SecAccessible DefaultAccessible = SecAccessible.AfterFirstUnlock;
 
+        /// <summary>
+        /// Enabled will store keychain entries in iCloud (if enabled on the device).
+        /// Default value is false, change to true to synchronize keys
+        /// </summary>
+        /// <remarks>
+        /// Entries are not automatically migrated between local and cloud storage when
+        /// this is changed. So if you stored entries with this set to false, when
+        /// you change it to true the entries will not exist in the keychain, because
+        /// they will have been created as local only. 
+        /// </remarks>
+        public bool UseCloud { get; set; } = false;
+
         #endregion
         #region ISecureStorage implementation
         /// <summary>
@@ -121,6 +133,11 @@ namespace Plugin.SecureStorage
                 sr.Accessible = DefaultAccessible;
             }
 
+            if (UseCloud)
+            {
+                sr.Synchronizable = true;
+            }
+
             return SecKeyChain.QueryAsRecord(sr, out ssc);
         }
 
@@ -144,6 +161,11 @@ namespace Plugin.SecureStorage
                 if (DefaultAccessible != SecAccessible.Invalid)
                 {
                     sr.Accessible = DefaultAccessible;
+                }
+
+                if (UseCloud)
+                {
+                    sr.Synchronizable = true;
                 }
                 return SecKeyChain.Remove(sr);
             }
