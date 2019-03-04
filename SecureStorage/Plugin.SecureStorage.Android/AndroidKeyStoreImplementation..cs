@@ -12,6 +12,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Security;
 using Android.Security.Keystore;
+using Android.Util;
 
 using Java.Security;
 using Javax.Crypto;
@@ -160,6 +161,8 @@ namespace Plugin.SecureStorage
         /// </summary>
         private class AndroidKeyStore
         {
+            const string LOG_TAG = nameof(AndroidKeyStore);
+
             const string androidKeyStore = "AndroidKeyStore"; // this is an Android const value
             const string aesAlgorithm = "AES";
             const string cipherTransformationAsymmetric = "RSA/ECB/PKCS1Padding";
@@ -203,28 +206,46 @@ namespace Plugin.SecureStorage
 
                     if (!string.IsNullOrEmpty(existingKeyStr))
                     {
-                        var wrappedKey = Convert.FromBase64String(existingKeyStr);
-
-                        var unwrappedKey = UnwrapKey(wrappedKey, keyPair.Private);
-                        var kp = unwrappedKey.JavaCast<ISecretKey>();
-
-                        return kp;
-                    }
-                    else
-                    {
-                        var keyGenerator = KeyGenerator.GetInstance(aesAlgorithm);
-                        var defSymmetricKey = keyGenerator.GenerateKey();
-
-                        var wrappedKey = WrapKey(defSymmetricKey, keyPair.Public);
-
-                        using (var prefsEditor = prefs.Edit())
+                        try
                         {
-                            prefsEditor.PutString(prefsMasterKey, Convert.ToBase64String(wrappedKey));
-                            prefsEditor.Commit();
-                        }
+                            var wrappedKey = Convert.FromBase64String(existingKeyStr);
 
-                        return defSymmetricKey;
+                            var unwrappedKey = UnwrapKey(wrappedKey, keyPair.Private);
+                            var kp = unwrappedKey.JavaCast<ISecretKey>();
+
+                            return kp;
+                        }
+                        catch (InvalidKeyException e)
+                        {
+                            Log.Error(LOG_TAG, e, "Unable to unwrap key: Invalid Key. This may be caused by system backup or upgrades. All secure storage items will now be removed. {0}", e.Message);
+                        }
+                        catch (IllegalBlockSizeException e)
+                        {
+                            Log.Error(LOG_TAG, e, "Unable to unwrap key: Illegal Block Size. This may be caused by system backup or upgrades. All secure storage items will now be removed. {0}", e.Message);
+                        }
+                        catch (BadPaddingException e)
+                        {
+                            Log.Error(LOG_TAG, e, "Unable to unwrap key: Bad Padding. This may be caused by system backup or upgrades. All secure storage items will now be removed. {0}", e.Message);
+                        }
+                        catch (Java.Lang.IllegalArgumentException e)
+                        {
+                            Log.Error(LOG_TAG, e, "Unable to unwrap key: Illegal Argument. This may be caused by system backup or upgrades. All secure storage items will now be removed. {0}", e.Message);
+                        }
+                        Clear(prefs);
                     }
+
+                    var keyGenerator = KeyGenerator.GetInstance(aesAlgorithm);
+                    var defSymmetricKey = keyGenerator.GenerateKey();
+
+                    var newWrappedKey = WrapKey(defSymmetricKey, keyPair.Public);
+
+                    using (var prefsEditor = prefs.Edit())
+                    {
+                        prefsEditor.PutString(prefsMasterKey, Convert.ToBase64String(newWrappedKey));
+                        prefsEditor.Commit();
+                    }
+
+                    return defSymmetricKey;
                 }
             }
 
@@ -370,6 +391,24 @@ namespace Plugin.SecureStorage
                 var decryptedData = cipher.DoFinal(data, initializationVectorLen, data.Length - initializationVectorLen);
 
                 return Encoding.UTF8.GetString(decryptedData);
+            }
+
+            bool Clear(ISharedPreferences prefs)
+            {
+                try
+                {
+                    using (var prefsEditor = prefs.Edit())
+                    {
+                        prefsEditor.Clear();
+                        prefsEditor.Commit();
+
+                        return true;
+                    }
+                }
+                catch
+                {
+                    return false;
+                }
             }
 
             private bool HasApiLevel(BuildVersionCodes versionCode) => (int)Build.VERSION.SdkInt >= (int)versionCode;
