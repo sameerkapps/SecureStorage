@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.SecureStorage.Tizen"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.SecureStorage.Mac", "SecureStorage\Plugin.SecureStorage.Mac\Plugin.SecureStorage.Mac.csproj", "{C697D9D0-049A-441F-A5A4-42E680EA88BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.SecureStorage.tvOS", "SecureStorage\Plugin.SecureStorage.tvOS\Plugin.SecureStorage.tvOS.csproj", "{F4E330C8-60C0-4141-A840-339B4194E649}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AppStore|Any CPU = AppStore|Any CPU
@@ -207,6 +209,14 @@ Global
 		{C697D9D0-049A-441F-A5A4-42E680EA88BF}.Release|x64.Build.0 = Release|Any CPU
 		{C697D9D0-049A-441F-A5A4-42E680EA88BF}.Release|x86.ActiveCfg = Release|Any CPU
 		{C697D9D0-049A-441F-A5A4-42E680EA88BF}.Release|x86.Build.0 = Release|Any CPU
+		{C697D9D0-049A-441F-A5A4-42E680EA88BF}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
+		{C697D9D0-049A-441F-A5A4-42E680EA88BF}.AppStore|Any CPU.Build.0 = Debug|Any CPU
+		{C697D9D0-049A-441F-A5A4-42E680EA88BF}.AppStore|ARM.ActiveCfg = Debug|Any CPU
+		{C697D9D0-049A-441F-A5A4-42E680EA88BF}.AppStore|ARM.Build.0 = Debug|Any CPU
+		{C697D9D0-049A-441F-A5A4-42E680EA88BF}.AppStore|x64.ActiveCfg = Debug|Any CPU
+		{C697D9D0-049A-441F-A5A4-42E680EA88BF}.AppStore|x64.Build.0 = Debug|Any CPU
+		{C697D9D0-049A-441F-A5A4-42E680EA88BF}.AppStore|x86.ActiveCfg = Debug|Any CPU
+		{C697D9D0-049A-441F-A5A4-42E680EA88BF}.AppStore|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
